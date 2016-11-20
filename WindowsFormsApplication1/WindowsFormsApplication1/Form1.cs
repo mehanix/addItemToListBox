@@ -100,12 +100,14 @@ namespace WindowsFormsApplication1
             //on click move selected one down
             try
             {
-                //insert item one position below(0-based count)
-                listBox1.Items.Insert(listBox1.SelectedIndex +2, listBox1.SelectedItem);
-                //select newly-moved item
-                listBox1.SetSelected(listBox1.SelectedIndex +2, true);
-                //remove the old entry(which is 2 positions above the now-selected item
-                listBox1.Items.RemoveAt(listBox1.SelectedIndex-2);
+                if (listBox1.SelectedIndex + 1 != listBox1.Items.Count)
+                {//insert item one position below(0-based count)
+                    listBox1.Items.Insert(listBox1.SelectedIndex + 2, listBox1.SelectedItem);
+                    //select newly-moved item
+                    listBox1.SetSelected(listBox1.SelectedIndex + 2, true);
+                    //remove the old entry(which is 2 positions above the now-selected item
+                    listBox1.Items.RemoveAt(listBox1.SelectedIndex - 2);
+                }
             }
             catch { };
         }
